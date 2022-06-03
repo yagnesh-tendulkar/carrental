@@ -1,0 +1,98 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row mt-5 pt-5">
+            <div class="col-4 col-sm-4 filter-type">
+                <form class="row" (ngSubmit)="onSubmit()">
+                    <p>Seats </p>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary">5</button>
+                    </div>
+
+
+                    <p>Car Types </p>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary">hatchback</button>
+                        <button type="button" class="btn btn-secondary">Sedan</button>
+                    </div>
+
+                    <p>Transmission </p>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary">Manual</button>
+                    </div>
+
+                    <p>Delivery Type </p>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary">Home Delivery</button>
+                        <button type="button" class="btn btn-secondary">Pickup</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-8 col-sm-8 filter-data">
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    
+                    </form>
+                  </nav>
+                <!-- <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div> -->
+                <div class="detail-block">
+                    <div class="row">
+                        <div class="col-12 card-data" *ngFor="let a of i">
+                            <div class="row">
+                                <div class="col-2 col-sm-3">
+                                    <img style="width: 110px;
+                                    height: 80px;" src="https://images.carandbike.com/car-images/large/hyundai/elite-i20/hyundai-elite-i20.jpg?v=52">
+                                </div>
+                                <div class="col-8 col-sm-6">
+                                    <h5>Maruthi</h5>
+                                    <p class="types">Manual | Petrol | 5 Seats</p>
+                                    <p class="available">Home delivery and pickup available</p>
+                                </div>
+                                <div class="col-2 col-sm-3 p-1">
+                                   <div>₹ 1,070</div>
+                                   <button class="btn btn-success text-center mt-3">Book now</button>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Recipient's username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Recipient's username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">                
+            </div> -->
+        </div>
+    </div>
+
+</section>
+<!-- <section>
+    <div class="row" >
+        <div class="col-3 text-center card-data" *ngFor="let a of i">
+            <div   class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h5 class="card-title">Light card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+
+</section> -->

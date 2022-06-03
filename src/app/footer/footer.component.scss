@@ -1,0 +1,20 @@
+.site-footer {
+    bottom: 0px !important;
+    position: fixed;
+    width: 100%;
+    z-index: 999999;
+    padding: 1em 0;
+    background: #000;
+}
+.site-footer a {
+    color: rgba(255, 255, 255, 0.5);
+    transition: .3s all ease;
+    text-decoration: none;
+}
+.site-footer p {
+    color: #fff;
+}
+.site-footer .footer-heading {
+    font-size: 16px;
+    color: #fff;
+}

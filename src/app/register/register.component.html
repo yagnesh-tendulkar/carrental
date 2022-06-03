@@ -1,0 +1,119 @@
+<div class="row d-flex">
+    <div class="col-md-4 col-sm-12 left-container">
+        <div class="row p-3">
+            <!-- <div class="logo"> <img src="https://i.ytimg.com/vi/ZAUecZN5jqE/maxresdefault.jpg"
+                        class="img-fluid animated" alt="">
+                </div> -->
+            <div class="col-lg-6 p-2 d-flex row justify-content-centert" style="color: whitesmoke;">
+                <h1>EZECARS</h1>
+                <p>Description</p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-12 m-auto">
+        <div class="p-5" style="height:80vh ;">
+            <h1>Register</h1>
+            <form class="row" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group w-50">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group w-50">
+                    <label for="exampleInputPassword1">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" id="exampleInputPassword1"
+                        placeholder="Enter Last Name" required>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group w-50">
+                    <label for="exampleInputEmail1">Phone Number</label>
+                    <input type="email" class="form-control" formControlName="phoneNo" placeholder="Enter Phone Number">
+                    <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNo.errors.required">Phone Number is required</div>
+                    </div>
+                </div>
+                <div class="form-group w-50">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input type="email" class="form-control" formControlName="email" id="exampleInputPassword1"
+                         placeholder="Enter Email">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                    <!-- <small formControlName="firstName" id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small> -->
+
+                </div>
+
+
+                <div class="form-group w-50">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"
+                        placeholder="Enter Password">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="form-group w-50">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword"
+                        id="exampleInputPassword1" placeholder="Confirm Password">
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+
+                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </div>
+
+                </div>
+                
+                <div class="form-group w-50" *ngIf="submitted && !this.registerForm.invalid">
+                    <label for="exampleInputPassword1">Otp</label>
+                    <input type="email" class="form-control" formControlName="otp" id="exampleInputPassword1"
+                        placeholder="Enter the OTP">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Enter the otp</div>
+                    </div>
+                    <small *ngIf="SECONDS>0" class="form-text text-muted">OTP valid for {{time }} mins. </small>
+                    <small *ngIf="SECONDS==0" class="form-text text-muted">click here to resend the otp</small>
+
+
+                </div>
+                <div class="form-group w-50 p-4"  *ngIf="submitted && !this.registerForm.invalid">
+                    <label for="exampleInputPassword1"></label>
+                    <input *ngIf="SECONDS==0" type="button" class="btn btn-secondary mt-2" (click)="resend()"
+                        value="Resend OTP">
+                    <input *ngIf="SECONDS>0" type="button" class="btn btn-success mt-2" (click)="verify()"
+                        value="Verify OTP">
+
+                    <!-- <div class="row">
+
+                   <small class="form-text text-muted">OTP valid for 2 mins. <button class="btn btn-primary">Resend</button></small>
+               </div> -->
+
+                </div> 
+                
+                <div class="form-check"  *ngIf="!submitted">
+                    <input formControlName="agree" type="checkbox" class="form-check-input">
+                    <label class="form-check-label" for="exampleCheck1">Accept Terms & Conditions <a href="">click</a>
+                        here to read</label>
+                    <div *ngIf="submitted && f.agree.errors" class="invalid-feedback">
+                        <div *ngIf="f.agree.errors.required">Please accept the Terms and conditions</div>
+                    </div>
+                </div>
+                <div style="text-align: center;"  *ngIf="!submitted">
+                    <button type="submit" nav-link="/home" class="w-50 btn btn-primary">Register</button>
+                    <p style="line-height: 3;"> Already have an account? <a href="login">Log In</a></p>
+                </div>
+             
+            </form>
+
+        </div>
+    </div>
+</div>

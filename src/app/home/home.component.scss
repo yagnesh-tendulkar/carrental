@@ -1,0 +1,85 @@
+.trip-form {
+    padding: 40px 30px;
+    background:#d6ecff;
+    position: relative;
+    margin-top: -90px;
+    -webkit-box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
+}
+#hero {
+    width: 100%;
+    height: 80vh;
+    background: #009de6;
+}
+#hero .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+.img-text{
+    color: #fff;
+}
+.how-it-works .step {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+.how-it-works .last-step {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+.how-it-works .step .number {
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #007bff;
+    background: #fff;
+    border-radius: 50%;
+    color: #007bff;
+    display: block;
+    position: relative;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 auto 10px auto;
+}
+.how-it-works .last-step .number {
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #007bff;
+    background: #fff;
+    border-radius: 50%;
+    color: #007bff;
+    display: block;
+    position: relative;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 auto 10px auto;
+}
+.how-it-works .step .caption {
+    display: block;
+}
+.how-it-works .step:after {
+    width: 100%;
+    height: 4px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+    background: #007bff;
+}
+
+.service-img-col-1{
+    padding: 4rem;
+    text-align: end;
+}
+.service-img-col-2{
+    padding: 4rem;
+    text-align: start;
+}
+.submit-btn{
+    border-radius: 20px;
+}

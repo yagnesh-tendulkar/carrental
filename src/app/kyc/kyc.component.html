@@ -1,0 +1,51 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row mt-5 pt-5 ">
+            <div class="col-6">
+                <h2>Complete your Kyc</h2>
+                <h5>upload your documents for better services </h5>
+            </div>
+            <div class="col-6" style="text-align: end;">
+                <button class="btn btn-secondary">Pending</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container p-5 h-50">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post" action="#" id="#">
+                    <div class="form-group color" [class.files]="!aadharimgURL" >
+                        <label>Upload Your Aadhar card </label>
+                        <input *ngIf="!aadharimgURL" #file  type="file" title=" " class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
+                        <img [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form method="post" action="#" id="#">
+                    <div class="form-group color" [class.files]="!aadharimgURL" >
+                        <label>Upload Your Aadhar card </label>
+                        <input *ngIf="!aadharimgURL" #file  type="file" title=" " class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
+                        <img [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
+                    </div>
+                </form>
+            </div>           
+            <div class="col-md-4">
+                <form method="post" action="#" id="#">
+                    <div class="form-group color" [class.files]="!dlimgURL" >
+                        <label>Upload Your Driving licence </label>
+                        <input *ngIf="!dlimgURL" #file  type="file" class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'dl');" multiple="">
+                        <img [src]="dlimgURL" height="200" *ngIf="dlimgURL">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-12 text-center">
+        <button class="btn btn-primary">Upload documents</button>
+    </div>
+</div>
+</section>

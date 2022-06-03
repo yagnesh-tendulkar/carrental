@@ -1,0 +1,35 @@
+.card-data{
+    justify-content: center;
+}
+.filter-type{
+height: 70vh;
+background-color: aliceblue;
+}
+.filter-data{
+
+}
+
+.btn-group{
+    padding: 0 35px 30px;
+}
+.detail-block{
+    overflow-y: auto;
+    position: relative;
+    height: 70vh;
+    overflow-x: hidden;
+    .types{
+        color: darkgrey;
+        font-size: 15px;
+    }
+    .available{
+        color: rgb(94, 92, 92);
+        font-size: 15px;
+    }
+}
+
+p{
+    margin: 0;
+}
+hr{
+    height: 5px !important;
+}
