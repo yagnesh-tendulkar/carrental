@@ -1,3 +1,21 @@
+.left-container{
+    height: 100vh;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHNSsic6RXmj8auZLfbCLY66qSDvJT03k3JRDF1VfC2Rdbn_QkUR8ro2ZtXl_zUmJf_cI&usqp=CAU);
+    background-size: cover;
+}
+.logo{
+    width: 90px;
+    padding: 10px;
+}
+.form-group{
+    padding: 10px;
+}
+.form-check{
+    padding: 10px 33px ;
+}
+.invalid-feedback{
+    display: block;
+}
 .files input {
     outline: 2px dashed #92b0b3;
     outline-offset: -10px;
@@ -35,7 +53,7 @@
     width: 100%;
     right: 0;
     height: 57px;
-    content: "Drop file here";
+    // content: "Drop file here";
     display: block;
     margin: 0 auto;
     color: #2ea591;
@@ -50,8 +68,3 @@
 input[type='file'] {
     color: transparent;
   }
-
-.loader{
-    position: fixed;
-    margin: -7rem 7rem;
-}

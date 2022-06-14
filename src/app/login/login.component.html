@@ -10,13 +10,13 @@
 
         </div>
     </div>
-    <div class="col-md-6 col-sm-12 m-auto">
-        <div class="m-auto " style="width: 60%;">
+    <div class="col-md-6 col-sm-10 m-auto loginform-main">
+        <div class="m-auto loginform">
             <h1>Login</h1>
             <form class="row" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
+                    <label>Email</label>
                     <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">Email is required</div>
@@ -26,7 +26,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label>Password</label>
                     <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                         <div *ngIf="f.password.errors.required">Password is required</div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="form-group" *ngIf="isValid">
-                    <label for="exampleInputPassword1">Otp</label>
+                    <label>Otp</label>
                     <input type="password" class="form-control" formControlName="otp" placeholder="Confirm Password">
                     <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
 

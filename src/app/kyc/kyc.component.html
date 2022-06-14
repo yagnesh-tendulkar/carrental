@@ -1,6 +1,6 @@
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
-        <div class="row mt-5 pt-5 ">
+        <div class="row pt-5 ">
             <div class="col-6">
                 <h2>Complete your Kyc</h2>
                 <h5>upload your documents for better services </h5>
@@ -16,36 +16,54 @@
         <div class="row">
             <div class="col-md-4">
                 <form method="post" action="#" id="#">
-                    <div class="form-group color" [class.files]="!aadharimgURL" >
-                        <label>Upload Your Aadhar card </label>
-                        <input *ngIf="!aadharimgURL" #file  type="file" title=" " class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
-                        <img [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
+                    <div class="form-group color" [class.files]="!panimgURL">
+                        <label>Upload Your Profile Pic </label>
+                        <input *ngIf="!panimgURL" #file type="file" title=" " class="form-control" accept='image/*'
+                            (change)="uploadFile($event,file.files,'pan'); " multiple="">
+                        <img style="width: 35vh;" [src]="panimgURL" height="200" *ngIf="panimgURL">
+                        <div class="d-flex justify-content-center loader" *ngIf="ploader">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-4">
                 <form method="post" action="#" id="#">
-                    <div class="form-group color" [class.files]="!aadharimgURL" >
+                    <div class="form-group color" [class.files]="!aadharimgURL">
                         <label>Upload Your Aadhar card </label>
-                        <input *ngIf="!aadharimgURL" #file  type="file" title=" " class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
-                        <img [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
+                        <input *ngIf="!aadharimgURL" #file type="file" title=" " class="form-control" accept='image/*'
+                            (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
+                        <img style="width: 35vh;" [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
+                        <div class="d-flex justify-content-center loader" *ngIf="aloader">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
                     </div>
                 </form>
-            </div>           
+            </div>
             <div class="col-md-4">
                 <form method="post" action="#" id="#">
-                    <div class="form-group color" [class.files]="!dlimgURL" >
+                    <div class="form-group color" [class.files]="!dlimgURL">
                         <label>Upload Your Driving licence </label>
-                        <input *ngIf="!dlimgURL" #file  type="file" class="form-control"  accept='image/*' (change)="uploadFile($event,file.files,'dl');" multiple="">
-                        <img [src]="dlimgURL" height="200" *ngIf="dlimgURL">
+                        <input *ngIf="!dlimgURL" #file type="file" class="form-control" accept='image/*'
+                            (change)="uploadFile($event,file.files,'dl');" multiple="">
+                        <img style="width: 35vh;" [src]="dlimgURL" height="200" *ngIf="dlimgURL">
+                        <div class="d-flex justify-content-center loader" *ngIf="dloader">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-<div class="row">
-    <div class="col-12 text-center">
-        <button class="btn btn-primary">Upload documents</button>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" (click)="onSubmit()">Upload documents</button>
+        </div>
     </div>
-</div>
 </section>

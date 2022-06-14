@@ -6,6 +6,8 @@ import { RegisterComponent } from "./register/register.component";
 import { ContactComponent } from "./contact/contact.component";
 import { KycComponent } from "./kyc/kyc.component";
 import { CarsdashboardComponent } from "./carsdashboard/carsdashboard.component";
+import { AdddetailsComponent } from "./adddetails/adddetails.component";
+import { UserComponent } from "./user/user.component";
 const routes: Routes = [
   {
     path: "login",
@@ -32,6 +34,18 @@ const routes: Routes = [
     path: "dashboard",
     component: CarsdashboardComponent,
   },
+  {
+    path: "addcar",
+    component: AdddetailsComponent,
+  },
+  {
+    path: "users",
+    component: UserComponent,
+  },
+
+  
+
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

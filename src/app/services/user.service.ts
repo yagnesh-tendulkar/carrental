@@ -97,16 +97,17 @@ export class UserService {
   }
 
   encryptData(data: any) {
-    let encryptInfo = encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(data),'secret_profile_key').toString());
+    let encryptInfo = CryptoJS.AES.encrypt(JSON.stringify(data),'secret_profile_key');
     console.log(encryptInfo)
-    localStorage.setItem("profile", JSON.stringify(encryptInfo));
+    localStorage.setItem("profile", (encryptInfo));
   }
   decryptData() {
     try {
       if (localStorage.getItem("profile") == null) return undefined;
-      var deData = CryptoJS.AES.decrypt(decodeURIComponent(localStorage.getItem("profile")),'secret_profile_key');
-      console.log(deData)
-      return deData;
+      var deData = CryptoJS.AES.decrypt(localStorage.getItem("profile"),'secret_profile_key').toString(CryptoJS.enc.Utf8);
+      console.log("deData",JSON.parse(deData))
+
+      return JSON.parse(deData);
     } catch (e) {
       console.log("clear from decrypt");
       localStorage.clear();

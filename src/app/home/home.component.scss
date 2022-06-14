@@ -74,12 +74,17 @@
 
 .service-img-col-1{
     padding: 4rem;
-    text-align: end;
+    text-align: center;
 }
 .service-img-col-2{
     padding: 4rem;
-    text-align: start;
+    text-align: center;
 }
 .submit-btn{
     border-radius: 20px;
+}
+
+.scroller{
+    display: flex;
+    justify-content: center;
 }

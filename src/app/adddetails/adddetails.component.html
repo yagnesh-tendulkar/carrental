@@ -1,0 +1,92 @@
+<div class="row d-flex">
+    <div class="col-md-3 col-sm-12 mt-1">
+        <form class="pt-2">
+            <div class="form-group color files">
+                <label>Upload car Image </label>
+                <input *ngIf="!imgURL" #file type="file" title=" " class="form-control" accept='image/*'
+                    (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
+                <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-9 col-sm-12 mt-1">
+        <div class="p-5" style="height:80vh ;">
+            <h1>Upload car details :</h1>
+            <form class="row" [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputEmail1">Car Model</label>
+                    <input type="text" class="form-control" formControlName="model" placeholder="Enter Car Model">
+                    <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                        <div *ngIf="f.model.errors.required">Car Model is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputPassword1">Kilometers</label>
+                    <input type="text" class="form-control" formControlName="kilometers" 
+                        placeholder="Enter kilometers" required>
+                    <div *ngIf="submitted && f.kilometers.errors" class="invalid-feedback">
+                        <div *ngIf="f.kilometers.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputEmail1">Mileage</label>
+                    <input type="email" class="form-control" formControlName="mileage" placeholder="Enter Phone Number">
+                    <div *ngIf="submitted && f.mileage.errors" class="invalid-feedback">
+                        <div *ngIf="f.mileage.errors.required">Phone Number is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputPassword1">Fuel Type</label>
+                    <input type="email" class="form-control" formControlName="fueltype" 
+                        placeholder="Enter Email">
+                    <div *ngIf="submitted && f.fueltype.errors" class="invalid-feedback">
+                        <div *ngIf="f.fueltype.errors.required">Email is required</div>
+                    </div>
+                    <!-- <small formControlName="firstName" id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small> -->
+
+                </div>
+
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputPassword1">Seats</label>
+                    <input type="password" class="form-control" formControlName="Seater" 
+                        placeholder="Enter Password">
+                    <div *ngIf="submitted && f.Seater.errors" class="invalid-feedback">
+                        <div *ngIf="f.Seater.errors.required">Seater is required</div>
+                        <div *ngIf="f.Seater.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputPassword1">Transmission Type</label>
+                    <input type="password" class="form-control" formControlName="garetype"
+                         placeholder="Confirm Password">
+                    <div *ngIf="submitted && f.garetype.errors" class="invalid-feedback">
+
+                        <div *ngIf="f.garetype.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.garetype.errors.mustMatch">Passwords must match</div>
+                    </div>
+
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="exampleInputPassword1">Price</label>
+                    <input type="email" class="form-control" formControlName="price" 
+                        placeholder="Enter the price">
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required">Enter the otp</div>
+                    </div>                   
+
+
+                </div>
+                <div class="form-group col-md-6 col-sm-12 p-4">
+                    <label for="exampleInputPassword1"></label>
+                    <input type="button" class="btn btn-secondary mt-2" 
+                        value="Add Car">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

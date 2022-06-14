@@ -1,20 +1,28 @@
-.site-footer {
-    bottom: 0px !important;
-    position: fixed;
+.footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    z-index: 999999;
-    padding: 1em 0;
-    background: #000;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+    clear: both;
+    position: relative;
+    margin-top: -5px;
 }
-.site-footer a {
-    color: rgba(255, 255, 255, 0.5);
-    transition: .3s all ease;
-    text-decoration: none;
+.footer .container {
+    padding-right: 15px;
+    padding-left: 15px;
 }
-.site-footer p {
-    color: #fff;
+.container {
+    width: 100%;
+        
+    // margin-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
-.site-footer .footer-heading {
-    font-size: 16px;
-    color: #fff;
+
+.text-muted {
+    color: #6c757d!important;
 }

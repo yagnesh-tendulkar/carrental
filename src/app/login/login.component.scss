@@ -19,3 +19,39 @@
 .invalid-feedback {
   display: block;
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .loginform {
+    width: 60%;
+  }
+
+  .loginform-main{
+    // padding-top: 55%;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginform {
+    width: 80%;
+  }
+
+  .loginform-main{
+    padding-top: 5%;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}

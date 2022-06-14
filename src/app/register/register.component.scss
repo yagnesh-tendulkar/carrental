@@ -16,3 +16,11 @@
 .invalid-feedback{
     display: block;
 }
+
+@media (max-width: 576px) {
+    .section {
+      width: 100%;
+    }
+  
+   
+  }

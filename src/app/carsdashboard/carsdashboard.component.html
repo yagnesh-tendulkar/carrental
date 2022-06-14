@@ -1,7 +1,7 @@
 <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-        <div class="row mt-5 pt-5">
-            <div class="col-4 col-sm-4 filter-type">
+    <div class="container section-main">
+        <div class="row pt-4">
+            <div class="col-md-4 col-sm-12 filter-type">
                 <form class="row" (ngSubmit)="onSubmit()">
                     <p>Seats </p>
                     <div class="btn-group" role="group">
@@ -28,12 +28,13 @@
                 </form>
 
             </div>
-            <div class="col-8 col-sm-8 filter-data">
+            <div class="col-md-8 col-sm-12 col-xs-12 filter-data">
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline">
                       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    
+                       
                     </form>
+                    <button class="btn btn-primary" [routerLink]="['/addcar']">Add car</button>
                   </nav>
                 <!-- <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -48,9 +49,9 @@
                 </div> -->
                 <div class="detail-block">
                     <div class="row">
-                        <div class="col-12 card-data" *ngFor="let a of i">
+                        <div class="col-md-12 col-sm-12 card-data" *ngFor="let a of i">
                             <div class="row">
-                                <div class="col-2 col-sm-3">
+                                <div class="col-2 col-sm-3 d-none d-md-block">
                                     <img style="width: 110px;
                                     height: 80px;" src="https://images.carandbike.com/car-images/large/hyundai/elite-i20/hyundai-elite-i20.jpg?v=52">
                                 </div>

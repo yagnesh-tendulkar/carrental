@@ -18,7 +18,11 @@ export class KycService {
   }
 
   uploadFile(data) {
-    return this.http.post(environment.hostURL + "login", data);
+    return this.http.post(environment.hostURL + "api/file", data);
+
+  }
+  saveData(data) {
+    return this.http.post(environment.hostURL + "api/kyc", data);
 
   }
 }

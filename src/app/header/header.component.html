@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark text-white">
+<!-- <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <h2>EZECARS</h2>
@@ -21,4 +21,31 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
+
+<!-- [ngClass]="{ 'show': isCollapsed } -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<h2 style="color: #fff;padding: 0 10px;">EZECARS</h2>
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap">asdsa</use>
+                </svg>
+            </a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isCollapsed }">
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/'" [class.text-secondary]="route.url!='/'" (click)="select('')">Home</a></li>
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/dashboard'" [class.text-secondary]="route.url!='/dashboard'" (click)="select('dashboard')">Dashboard</a></li>
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/kyc'" [class.text-secondary]="route.url!='/kyc'" (click)="select('kyc')">Kyc</a></li>
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/contact'" [class.text-secondary]="route.url!='/contact'" (click)="select('contact')">Contact us</a></li>
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/about'" [class.text-secondary]="route.url!='/about'" (click)="select('about')">About</a></li>
+    </ul>
+    <div class="text-center p-2">
+        <button type="button" class="btn btn-outline-light me-2" (click)="select('login')">Login</button>
+        <button type="button" class="btn btn-warning" (click)="select('register')">Sign-up</button>
+    </div>
+  </div>
+</nav>
