@@ -75,9 +75,9 @@
                 
                 <div class="form-group col-md-6 col-sm-12" *ngIf="submitted && !this.registerForm.invalid">
                     <label for="exampleInputPassword1">Otp</label>
-                    <input type="email" class="form-control" formControlName="otp" id="exampleInputPassword1"
+                    <input type="text" class="form-control" formControlName="otp" id="exampleInputPassword1"
                         placeholder="Enter the OTP">
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">Enter the otp</div>
                     </div>
                     <small *ngIf="SECONDS>0" class="form-text text-muted">OTP valid for {{time }} mins. </small>
@@ -85,6 +85,7 @@
 
 
                 </div>
+                <!-- {{!this.registerForm.invalid}} -->
                 <div class="form-group col-md-6 col-sm-12 p-4"  *ngIf="submitted && !this.registerForm.invalid">
                     <label for="exampleInputPassword1"></label>
                     <input *ngIf="SECONDS==0" type="button" class="btn btn-secondary mt-2" (click)="resend()"
@@ -99,7 +100,7 @@
 
                 </div> 
                 
-                <div class="form-check"  *ngIf="!submitted">
+                <div class="form-check"  *ngIf="!submitted || !this.registerForm.invalid">
                     <input formControlName="agree" type="checkbox" class="form-check-input">
                     <label class="form-check-label" for="exampleCheck1">Accept Terms & Conditions <a href="">click</a>
                         here to read</label>
@@ -107,7 +108,7 @@
                         <div *ngIf="f.agree.errors.required">Please accept the Terms and conditions</div>
                     </div>
                 </div>
-                <div style="text-align: center;"  *ngIf="!submitted">
+                <div style="text-align: center;"  *ngIf="!submitted || !this.registerForm.invalid">
                     <button type="submit" nav-link="/home" class="col-md-6 col-sm-12 btn btn-primary">Register</button>
                     <p style="line-height: 3;"> Already have an account? <a href="login">Log In</a></p>
                 </div>

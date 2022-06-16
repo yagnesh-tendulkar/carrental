@@ -21,10 +21,13 @@ export class TokenInterceptor implements HttpInterceptor {
 
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    // console.log("request", request)
-    if (request.url.includes('/login') || request.url.includes('/register')) {
+    console.log("request", request)
+    if (request.url.includes('/login') || request.url.includes('/register') || request.url.includes('/otp')) {      
       return next.handle(request);
+
     }
+    console.log("request", request)
+
     if (request['status'] == 401) {
       console.log("clear from token 401")
       localStorage.clear();

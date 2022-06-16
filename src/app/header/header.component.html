@@ -38,14 +38,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isCollapsed }">
     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a class="nav-link px-2" [class.text-white]="route.url=='/'" [class.text-secondary]="route.url!='/'" (click)="select('')">Home</a></li>
-        <li><a class="nav-link px-2" [class.text-white]="route.url=='/dashboard'" [class.text-secondary]="route.url!='/dashboard'" (click)="select('dashboard')">Dashboard</a></li>
+        <li><a class="nav-link px-2" [class.text-white]="route.url=='/dashboard'" [class.text-secondary]="route.url!='/dashboard'" (click)="select('dashboard')">Filter</a></li>
         <li><a class="nav-link px-2" [class.text-white]="route.url=='/kyc'" [class.text-secondary]="route.url!='/kyc'" (click)="select('kyc')">Kyc</a></li>
         <li><a class="nav-link px-2" [class.text-white]="route.url=='/contact'" [class.text-secondary]="route.url!='/contact'" (click)="select('contact')">Contact us</a></li>
         <li><a class="nav-link px-2" [class.text-white]="route.url=='/about'" [class.text-secondary]="route.url!='/about'" (click)="select('about')">About</a></li>
     </ul>
-    <div class="text-center p-2">
+    <div class="text-center p-2" *ngIf="!userService.isLoggedin">
         <button type="button" class="btn btn-outline-light me-2" (click)="select('login')">Login</button>
         <button type="button" class="btn btn-warning" (click)="select('register')">Sign-up</button>
+    </div>
+    <div class="text-center p-2" *ngIf="userService.isLoggedin">
+        <button type="button" class="btn btn-outline-light" (click)="logout()">Logout</button>
+        
     </div>
   </div>
 </nav>

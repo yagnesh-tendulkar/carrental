@@ -36,7 +36,7 @@
                         <input *ngIf="!aadharimgURL" #file type="file" title=" " class="form-control" accept='image/*'
                             (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
                         <img style="width: 35vh;" [src]="aadharimgURL" height="200" *ngIf="aadharimgURL">
-                        <div class="d-flex justify-content-center loader" *ngIf="aloader">
+                        <div class="d-flex justify-content-center loader" *ngIf="aLoader">
                             <div class="spinner-border" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>

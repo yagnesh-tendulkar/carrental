@@ -73,7 +73,7 @@ export class UserService {
 
   generateOtp(data) {
     return this.http
-      .post(environment.hostURL + "api/otp/generate", data)
+      .post(environment.hostURL + "otp/generate", data)
       .pipe(
         tap((group) => console.log("password change")),
         catchError(this.interceptor.handleError("getAgentList", []))
@@ -82,7 +82,7 @@ export class UserService {
 
   verifyOtp(data) {
     return this.http
-      .post(environment.hostURL + "api/otp/verify", data)
+      .post(environment.hostURL + "otp/verify", data)
       .pipe(
         tap((group) => console.log("password change")),
         catchError(this.interceptor.handleError("getAgentList", []))

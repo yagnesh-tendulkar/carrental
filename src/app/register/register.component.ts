@@ -11,11 +11,12 @@ export class RegisterComponent implements OnInit {
   // registerForm: FormGroup;
   registerForm: FormGroup;
   otpVerify: true;
-  SECONDS = 10;
+  SECONDS = 120*1000;
   time = new Date(this.SECONDS * 1000).toISOString().substr(14, 5);
   submitted: boolean = false;
   isSpinning: boolean;
   source = interval(1000);
+  t: any;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService
@@ -45,16 +46,11 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-  t = this.source.subscribe((val) => {
-    console.log("interval running", this.time);
-    this.SECONDS--;
-    this.time = new Date(this.SECONDS * 1000).toISOString().substr(14, 5);
-    if (this.SECONDS == 0) this.t.unsubscribe();
-  });
+ 
   onSubmit() {
     console.log(this.registerForm.value);
     this.submitted = true;
-    if (this.registerForm.invalid) {
+    if (!this.registerForm.invalid) {
       return;
     } else {
       this.userService
@@ -102,11 +98,17 @@ export class RegisterComponent implements OnInit {
       .generateOtp({ id: this.registerForm.value.email })
       .subscribe((res) => {
         console.log(res);
+        this.t= this.source.subscribe((val) => {
+          console.log("interval running", this.time);
+          this.SECONDS--;
+          this.time = new Date(this.SECONDS * 1000).toISOString().substr(14, 5);
+          if (this.SECONDS == 0) this.t.unsubscribe();
+        });
       });
   }
   verify() {
     this.userService
-      .verifyOtp({ id: "test@gmail.com", otp: 630213 })
+      .verifyOtp({ id: this.registerForm.value.email, otp: this.registerForm.value.otp })
       .subscribe((res) => {
         console.log(res);
       });

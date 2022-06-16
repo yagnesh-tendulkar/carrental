@@ -16,6 +16,8 @@ import { KycComponent } from './kyc/kyc.component';
 import { CarsdashboardComponent } from './carsdashboard/carsdashboard.component';
 import { AdddetailsComponent } from './adddetails/adddetails.component';
 import { UserComponent } from './user/user.component';
+import { AuthService } from './services/auth.service';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,11 @@ import { UserComponent } from './user/user.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginComponent],
+  providers: [LoginComponent, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

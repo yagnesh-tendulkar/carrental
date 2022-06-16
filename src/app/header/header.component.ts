@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Routes, Router, ActivatedRoute } from "@angular/router"; // import {ApiserviceService}
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: "app-header",
@@ -7,7 +8,9 @@ import { Routes, Router, ActivatedRoute } from "@angular/router"; // import {Api
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public route: Router) {}
+  constructor(public route: Router,
+    private userService: UserService
+    ) {}
   isCollapsed = false;
 
   toggleNavbar() {
@@ -19,5 +22,10 @@ export class HeaderComponent implements OnInit {
   select(nav) {
     this.route.navigateByUrl("/" + nav);
     this.isCollapsed = false;
+  }
+  logout(){
+    localStorage.clear();
+    this.route.navigateByUrl("/home");
+
   }
 }
