@@ -8,6 +8,7 @@ import { KycComponent } from "./kyc/kyc.component";
 import { CarsdashboardComponent } from "./carsdashboard/carsdashboard.component";
 import { AdddetailsComponent } from "./adddetails/adddetails.component";
 import { UserComponent } from "./user/user.component";
+import { CarsComponent } from "./cars/cars.component";
 const routes: Routes = [
   {
     path: "login",
@@ -35,12 +36,17 @@ const routes: Routes = [
     component: CarsdashboardComponent,
   },
   {
-    path: "addcar",
+    path: "car/:action/:carId",
     component: AdddetailsComponent,
   },
   {
     path: "users",
     component: UserComponent,
+  },
+  
+  {
+    path: "car/:id",
+    component: CarsComponent,
   },
 
   

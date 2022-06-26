@@ -1,15 +1,5 @@
 <div class="row d-flex">
-    <div class="col-md-3 col-sm-12 mt-1">
-        <form class="pt-2">
-            <div class="form-group color files">
-                <label>Upload car Image </label>
-                <input *ngIf="!imgURL" #file type="file" title=" " class="form-control" accept='image/*'
-                    (change)="uploadFile($event,file.files,'aadhar'); " multiple="">
-                <img [src]="imgURL" height="200" *ngIf="imgURL">
-            </div>
-        </form>
-    </div>
-    <div class="col-md-9 col-sm-12 mt-1">
+    <div class="col-md-12 col-sm-12 mt-1">
         <div class="p-5" style="height:80vh ;">
             <h1>Upload car details :</h1>
             <form class="row" [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
@@ -31,15 +21,15 @@
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="exampleInputEmail1">Mileage</label>
-                    <input type="email" class="form-control" formControlName="mileage" placeholder="Enter Phone Number">
+                    <input type="text" class="form-control" formControlName="mileage" placeholder="Enter Mileage">
                     <div *ngIf="submitted && f.mileage.errors" class="invalid-feedback">
                         <div *ngIf="f.mileage.errors.required">Phone Number is required</div>
                     </div>
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="exampleInputPassword1">Fuel Type</label>
-                    <input type="email" class="form-control" formControlName="fueltype" 
-                        placeholder="Enter Email">
+                    <input type="text" class="form-control" formControlName="fueltype" 
+                        placeholder="Enter Fuel Type">
                     <div *ngIf="submitted && f.fueltype.errors" class="invalid-feedback">
                         <div *ngIf="f.fueltype.errors.required">Email is required</div>
                     </div>
@@ -51,8 +41,8 @@
 
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="exampleInputPassword1">Seats</label>
-                    <input type="password" class="form-control" formControlName="Seater" 
-                        placeholder="Enter Password">
+                    <input type="text" class="form-control" formControlName="Seater" 
+                        placeholder="No of seats">
                     <div *ngIf="submitted && f.Seater.errors" class="invalid-feedback">
                         <div *ngIf="f.Seater.errors.required">Seater is required</div>
                         <div *ngIf="f.Seater.errors.minlength">Password must be at least 6 characters</div>
@@ -60,11 +50,10 @@
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="exampleInputPassword1">Transmission Type</label>
-                    <input type="password" class="form-control" formControlName="garetype"
-                         placeholder="Confirm Password">
+                    <input type="text" class="form-control" formControlName="garetype"
+                         placeholder="Transmission Type">
                     <div *ngIf="submitted && f.garetype.errors" class="invalid-feedback">
-
-                        <div *ngIf="f.garetype.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.garetype.errors.required">Transmission Type is required</div>
                         <div *ngIf="f.garetype.errors.mustMatch">Passwords must match</div>
                     </div>
 
@@ -72,18 +61,24 @@
 
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="exampleInputPassword1">Price</label>
-                    <input type="email" class="form-control" formControlName="price" 
+                    <input type="text" class="form-control" formControlName="price" 
                         placeholder="Enter the price">
                     <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
-                        <div *ngIf="f.price.errors.required">Enter the otp</div>
+                        <div *ngIf="f.price.errors.required">Enter the valid price</div>
                     </div>                   
 
 
                 </div>
-                <div class="form-group col-md-6 col-sm-12 p-4">
+                <div *ngIf="action=='add'" class="form-group col-md-6 col-sm-12 p-4">
                     <label for="exampleInputPassword1"></label>
-                    <input type="button" class="btn btn-secondary mt-2" 
+                    <input type="submit" class="btn btn-success mt-2" 
                         value="Add Car">
+                </div>
+
+                <div *ngIf="action=='edit'" class="form-group col-md-6 col-sm-12 p-4">
+                    <label for="exampleInputPassword1"></label>
+                    <input type="submit" class="btn btn-primary mt-2" 
+                        value="Update car details">
                 </div>
             </form>
 

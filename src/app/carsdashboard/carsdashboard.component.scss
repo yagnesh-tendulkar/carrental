@@ -1,12 +1,14 @@
 .card-data{
     justify-content: center;
+    background-color: white;
+    border: 1px solid grey;
 }
 .filter-type{
 height: 70vh;
 background-color: aliceblue;
 }
 .filter-data{
-
+    // background: lightgray;
 }
 
 .btn-group{
@@ -34,3 +36,9 @@ hr{
     height: 5px !important;
 }
 
+.price{
+    font-size: 25px;
+    padding: 3px;
+    font-weight: bold;
+    padding-left: 12px;
+}

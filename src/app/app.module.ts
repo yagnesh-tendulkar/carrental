@@ -18,6 +18,8 @@ import { AdddetailsComponent } from './adddetails/adddetails.component';
 import { UserComponent } from './user/user.component';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptor } from './services/token.interceptor';
+import { SearchPipe } from './search.pipe';
+import { CarsComponent } from './cars/cars.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { TokenInterceptor } from './services/token.interceptor';
     KycComponent,
     CarsdashboardComponent,
     AdddetailsComponent,
-    UserComponent
+    UserComponent,
+    SearchPipe,
+    CarsComponent,
   ],
   imports: [
     BrowserModule,

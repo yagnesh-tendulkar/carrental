@@ -105,7 +105,7 @@ export class UserService {
     try {
       if (localStorage.getItem("profile") == null) return undefined;
       var deData = CryptoJS.AES.decrypt(localStorage.getItem("profile"),'secret_profile_key').toString(CryptoJS.enc.Utf8);
-      console.log("deData",JSON.parse(deData))
+      // console.log("deData",JSON.parse(deData))
 
       return JSON.parse(deData);
     } catch (e) {

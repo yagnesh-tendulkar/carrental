@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     localStorage.clear();
-    this.route.navigateByUrl("/home");
-
+    this.userService.isLoggedin=false
+    this.route.navigateByUrl("/");
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { interval } from "rxjs";
 import { UserService } from "../services/user.service";
+import { CarsService } from "../services/cars.service";
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-adddetails",
   templateUrl: "./adddetails.component.html",
@@ -12,9 +14,15 @@ export class AdddetailsComponent implements OnInit {
   detailsForm: FormGroup;
   message: string;
   submitted: boolean;
+  car: any;
+  id=null
+  action=null;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private carService: CarsService,
+
+    public route: ActivatedRoute
   ) {}
   uploadFile(e, files, type) {
     let formData = new FormData();
@@ -43,23 +51,74 @@ export class AdddetailsComponent implements OnInit {
       this.imgURL = reader.result;
     };
   }
+
   ngOnInit() {
+    console.log(this.userService.decryptData().email)
     this.detailsForm = this.formBuilder.group(
       {
+
         model: ["", Validators.required],
         kilometers: ["", Validators.required],
-        mileage: ["",Validators.required ],
+        mileage: ["", Validators.required],
         fueltype: ["", Validators.required],
         Seater: [""],
         garetype: ["", Validators.required],
-        price:  ["", Validators.required],
-        image:  [""],
+        price: ["", Validators.required],
+        image: [null],
       }
-    );
+      )
+    this.route.paramMap.subscribe((paramMap) => {
+      this.action=paramMap.get("action")
+      this.id=paramMap.get("carId")
+
+      console.log(paramMap.get("carId"), paramMap.get("action"));
+      // this.carService.getCarsById(paramMap.get("cardId")).subscribe((res) => {
+      //   console.log(res);
+      //   this.car = res;
+      // });
+    });
+    if(this.action=='add'){
+    this.detailsForm = this.formBuilder.group(
+      {
+
+        model: ["", Validators.required],
+        kilometers: ["", Validators.required],
+        mileage: ["", Validators.required],
+        fueltype: ["", Validators.required],
+        Seater: [""],
+        garetype: ["", Validators.required],
+        price: ["", Validators.required],
+        image: [null],
+      });
+    }
+    else{
+         this.carService.getCarsById(this.id).subscribe((res:any) => {
+        console.log(res);
+        this.car = res;
+        this.detailsForm = this.formBuilder.group(
+          {
+    
+            model: [res.model, Validators.required],
+            kilometers: [res.kilometers, Validators.required],
+            mileage: [res.mileage, Validators.required],
+            fueltype: [res.fueltype, Validators.required],
+            Seater: [res.seater],
+            garetype: [res.garetype, Validators.required],
+            price: [res.price, Validators.required],
+            image: [null],
+          });
+      });
+    }
   }
 
   onSubmit() {
-   
+    
+    let data= this.detailsForm.value
+    data["userId"]=this.userService.decryptData().email
+    console.log(data)
+    this.carService.addCar(data).subscribe((res)=>{
+
+    })
   }
 
   onReset() {

@@ -21,8 +21,8 @@ export class TokenInterceptor implements HttpInterceptor {
 
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log("request", request)
     if (request.url.includes('/login') || request.url.includes('/register') || request.url.includes('/otp')) {      
+      console.log("request", request)
       return next.handle(request);
 
     }
